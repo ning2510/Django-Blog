@@ -9,6 +9,7 @@ verify_ssl = true
 django = "==2.2.3"
 uvicorn = "*"
 unicorn = "*"
+markdown = "*"
 
 [requires]
 python_version = "3.8"
