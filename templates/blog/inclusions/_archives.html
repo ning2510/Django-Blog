@@ -1,0 +1,20 @@
+<div class="widget widget-archives">
+  <h3 class="widget-title">归档</h3>
+  <ul>
+    {% for date in date_list %}
+      <li>
+        <!-- 这里 url 这个模板标签的作用是解析视图函数 blog:archive 对应的 URL 模式，并把 URL 模式中的年和月替换成 date.year，date.month 的值
+        url 模板标签接收的第一个参数为被解析视图函数的端点值，这个端点值由 2 部分组成，中间由冒号分隔。
+        第一部分为在应用的 urls.py 中指定的 app_name 的值（充当命名空间，这样即使不同 app 下有相同的视图函数名，也不会冲突）
+        第二部分 path 函数中传入的 name 参数的值。
+        比如指定了 app_name = 'blog'，archive 视图函数的 url 模式为 path('archives/<int:year>/<int:month>/', views.archive, name='archive'), 因此对应的端点值为 blog:archive。
+        url 模板标签接收的其它参数为 URL 路径参数，即 URL 模式中路径参数转换器需要捕获的值。-->
+        <a href="{% url 'blog:archive' date.year date.month %}">
+          {{ date.year }} 年 {{ date.month }} 月
+        </a>
+      </li>
+      {% empty %}
+      暂无归档！
+    {% endfor %}
+  </ul>
+</div>
