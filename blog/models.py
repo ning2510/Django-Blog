@@ -101,6 +101,8 @@ class Post(models.Model):
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name
+        # ['-created_time'] 指定了依据哪个属性的值进行排序，这里指定为按照文章发布时间排序，且负号表示逆序排列
+        ordering = ['-created_time']
 
     def __str__(self):
         return self.title
