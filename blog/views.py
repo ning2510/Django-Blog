@@ -6,11 +6,14 @@ from .models import Post, Category, Tag
 from django.utils.text import slugify
 from markdown.extensions.toc import TocExtension
 from django.views.generic import DetailView, ListView
+from pure_pagination.mixins import PaginationMixin
 
-class IndexView(ListView):
+class IndexView(PaginationMixin, ListView):
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
+    # 指定 paginate_by 属性后开启分页功能，其值代表每一页包含多少篇文章
+    paginate_by = 10
 
 
 class CategoryView(IndexView):
