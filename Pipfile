@@ -10,6 +10,8 @@ django = "==2.2.3"
 uvicorn = "*"
 markdown = "*"
 gunicorn = "*"
+faker = "*"
+django-pure-pagination = "*"
 
 [requires]
 python_version = "3.8"
