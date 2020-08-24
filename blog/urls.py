@@ -14,4 +14,6 @@ urlpatterns = [
     path('categories/<int:pk>/', views.CategoryView.as_view(), name='category'),
     # 标签页面
     path('tags/<int:pk>/', views.TagView.as_view(), name='tag'),
+    # 其他 url 配置
+    path('search/', views.search, name='search'),
 ]
